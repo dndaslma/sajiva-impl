@@ -17,8 +17,7 @@ public class DatabaseConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // 🔴 KONEKSI LANGSUNG KE RAILWAY (AMAN BUAT TEST)
-            String jdbcURL =
+            String url =
                 "jdbc:mysql://switchback.proxy.rlwy.net:27992/railway"
               + "?useSSL=false"
               + "&allowPublicKeyRetrieval=true"
@@ -27,12 +26,13 @@ public class DatabaseConnection {
             String user = "root";
             String password = "sCpCUcshJHBChgyXFkHZvczcafbGKFzZ";
 
-            return DriverManager.getConnection(jdbcURL, user, password);
+            return DriverManager.getConnection(url, user, password);
 
         } catch (ClassNotFoundException e) {
             throw new SQLException("MySQL Driver tidak ditemukan", e);
         }
     }
 }
+
 
 
