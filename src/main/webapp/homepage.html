@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAJIVA - Selamat Datang</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: "Agoka Family";
+      src: url("assets/fonts/AgokaFamily.otf") format("opentype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      background: url('assets/images/bg.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Inria Sans", sans-serif;
+      color: #333;
+    }
+
+    .title-agoka {
+      font-family: "Agoka Family", serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    .title-agoka .sajiva {
+      color: #812A23;
+    }
+
+    .btn-main {
+      background-color: #812A23;
+      color: #fff;
+      border: none;
+      font-family: "Inria Sans", sans-serif;
+      font-weight: 600;
+    }
+
+    .btn-main:hover {
+      background-color: #6b1f1c;
+      color: #fff;
+    }
+
+    .btn-outline-main {
+      border: 2px solid #812A23;
+      color: #812A23;
+      font-family: "Inria Sans", sans-serif;
+      font-weight: 600;
+    }
+
+    .btn-outline-main:hover {
+      background-color: #812A23;
+      color: #fff;
+    }
+
+    p {
+      font-family: "Inria Sans", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+  <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+    <div class="text-center">
+
+      <h1 class="title-agoka">
+        Selamat Datang di <span class="sajiva">SAJIVA</span>
+      </h1>
+
+      <p class="mb-4">Silakan login atau daftar untuk melanjutkan.</p>
+
+      <div class="d-flex gap-3 justify-content-center">
+        <a href="register.jsp" class="btn btn-outline-main">
+          <i class="fas fa-user-plus me-2"></i>Register
+        </a>
+        <a href="login.jsp" class="btn btn-outline-main">
+          <i class="fas fa-sign-in-alt me-2"></i>Login
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
