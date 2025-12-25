@@ -15,21 +15,20 @@ public class DatabaseConnection {
 
     public static Connection getConnection() throws SQLException {
 
-        String host = System.getenv("mysql.railway.internal");
-        String port = System.getenv("3306");
-        String database = System.getenv("railway");
-        String user = System.getenv("root");
-        String password = System.getenv("sCpCUcshJHBChgyXFkHZvczcafbGKFzZ");
+        String host = System.getenv("MYSQLHOST");
+        String port = System.getenv("MYSQLPORT");
+        String database = System.getenv("MYSQLDATABASE");
+        String user = System.getenv("MYSQLUSER");
+        String password = System.getenv("MYSQLPASSWORD");
 
-        String jdbcURL =
-            "jdbc:mysql://" + host + ":" + port + "/" + database +
-            "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+        String jdbcURL = "jdbc:mysql://" + host + ":" + port + "/" + database
+                + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection(jdbcURL, user, password);
         } catch (ClassNotFoundException e) {
-            throw new SQLException("MySQL Driver not found", e);
+            throw new SQLException("MySQL Driver tidak ditemukan", e);
         }
     }
 }
