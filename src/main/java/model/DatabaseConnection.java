@@ -12,16 +12,29 @@ import java.sql.SQLException;
  * @author dinda salma
  */
 public class DatabaseConnection {
+
     public static Connection getConnection() throws SQLException {
-        String jdbcURL = "jdbc:mysql://localhost:3306/sajivaa_impl";
-        String dbUser = "root";
-        String dbPassword = "123";
+
+        // Ambil dari Railway ENV
+        String host = System.getenv("MYSQLHOST");
+        String port = System.getenv("MYSQLPORT");
+        String db   = System.getenv("MYSQLDATABASE");
+        String user = System.getenv("MYSQLUSER");
+        String pass = System.getenv("MYSQLPASSWORD");
+
+        // CEK BIAR GAK NULL (penting buat debug)
+        if (host == null) {
+            throw new SQLException("ENV MYSQLHOST tidak ditemukan");
+        }
+
+        String jdbcURL = "jdbc:mysql://" + host + ":" + port + "/" + db
+                + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); 
-            return DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            return DriverManager.getConnection(jdbcURL, user, pass);
         } catch (ClassNotFoundException e) {
-            throw new SQLException("JDBC Driver tidak ditemukan.", e);
+            throw new SQLException("MySQL JDBC Driver tidak ditemukan", e);
         }
     }
 }
