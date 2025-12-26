@@ -78,7 +78,7 @@ public class TambahCafeServlet extends HttpServlet {
             return;
         }
 
-        String uploadPath = getServletContext().getRealPath("/") + File.separator + UPLOAD_DIR;
+        String uploadPath = getServletContext().getRealPath("/uploads/cafe") + File.separator + UPLOAD_DIR;
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) uploadDir.mkdirs();
 

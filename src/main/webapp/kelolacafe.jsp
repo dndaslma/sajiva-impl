@@ -27,7 +27,7 @@
 
         table {
             width: 100%;
-            table-layout: fixed; 
+            table-layout: auto; 
         }
 
         th, td {

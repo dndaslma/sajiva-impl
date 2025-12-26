@@ -13,21 +13,16 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
     public static Connection getConnection() throws SQLException {
-
-        String host = System.getenv("MYSQLHOST");
-        String port = System.getenv("MYSQLPORT");
-        String database = System.getenv("MYSQLDATABASE");
-        String user = System.getenv("MYSQLUSER");
-        String password = System.getenv("MYSQLPASSWORD");
-
-        String jdbcURL = "jdbc:mysql://" + host + ":" + port + "/" + database +
-                "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+        String jdbcURL = "jdbc:mysql://localhost:3306/sajivaa_impl";
+        String dbUser = "root";
+        String dbPassword = "123";
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(jdbcURL, user, password);
+            Class.forName("com.mysql.cj.jdbc.Driver"); 
+            return DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
         } catch (ClassNotFoundException e) {
-            throw new SQLException(e);
+            throw new SQLException("JDBC Driver tidak ditemukan.", e);
         }
     }
 }
+
